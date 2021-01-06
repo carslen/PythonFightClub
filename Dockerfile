@@ -4,7 +4,7 @@ COPY requirements.txt ./
 
 RUN apk update && \
     apk upgrade && \
-    apk --update add --virtual build-dependencies gcc musl-dev libffi-dev openssl-dev libxml2 libxml2-dev libxslt-dev && \
+    apk --update add --virtual build-dependencies gcc musl-dev && \
     pip install --no-cache-dir --root=/app -r requirements.txt
 
 from python:3-alpine as latest
