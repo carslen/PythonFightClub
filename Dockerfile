@@ -13,6 +13,6 @@ COPY --from=builder /app /
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY main.py .
 
 CMD [ "python", "./main.py" ]
