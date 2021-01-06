@@ -1,4 +1,5 @@
 import os
+import sys
 import discord
 from dotenv import load_dotenv
 from discord.ext import commands
@@ -48,14 +49,14 @@ async def test2(ctx):
 
 @bot.command()
 async def info(ctx):
-    major, minor, micro, releaselevel, serial = discord.version_info
-    ver = str(major) + '.' + str(minor)
-
+    major, minor, micro, releaselevel, serial = sys.version_info
+    p_ver = str(major) + '.' + str(minor) + '.' + str(micro)
     msg = discord.Embed(description='Meine Informationen', colour=discord.Colour.green(), title='Bot Informationen')
-    msg.set_author(name='lala')
-    msg.add_field(name='Discord Python Module Version', value=ver, inline=True)
-    msg.add_field(name='Blabla', value='1233', inline=True)
-    msg.add_field(name='Author', value=msg.author.name, inline=True)
+    msg.add_field(name='Verwendete Software', value='Name und Version der verwendeten Softwarekomponenten.', inline=False)
+    msg.add_field(name='discord.py', value=discord.__version__)
+    msg.add_field(name='Python', value=p_ver)
+    msg.add_field(name='Author', value='cle', inline=False)
+    msg.add_field(name='Source Code', value='https://github.com/carslen/PythonFightClub')
 
     await ctx.send(embed=msg)
 
